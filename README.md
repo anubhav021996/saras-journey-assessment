@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Journey Timeline - Saras AI Assessment
 
-## Getting Started
+**Live:** <https://saras-journey-assessment.vercel.app/>
 
-First, run the development server:
+Timeline showing learning steps that alternate left and right.
+
+## Running locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open <http://localhost:3000>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Everything renders from one array in `app/configs/journeyData.ts`.
 
-## Learn More
+The main timeline component filters odd steps to the left column and even steps to the right. Center column is the black road that extends as you add more items to the array.
 
-To learn more about Next.js, take a look at the following resources:
+Cards and connectors change color based on the flag property (red/orange/purple).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Files
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `JourneyTimeline.tsx` - main grid layout
+- `JourneyStep.tsx` - individual cards
+- `journeyData.ts` - the data array
+- `journey.ts` - typescript types
 
-## Deploy on Vercel
+## Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Next.js 16, TypeScript, Tailwind CSS
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deploy
+
+```bash
+npm run build
+npm start
+```
+
+---
+
+Saras AI Institute - Frontend Assessment
