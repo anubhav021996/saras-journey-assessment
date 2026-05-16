@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { twMerge } from "tailwind-merge";
 import { flagImages } from "../configs/flagImages";
 import { JourneyData } from "../types/journey";
 
@@ -8,7 +9,14 @@ interface Props {
 
 export const JourneyStep = ({ step }: Props) => {
   return (
-    <div className="bg-white rounded-lg border border-gray-200 px-8 py-2 shadow-sm relative">
+    <div
+      className={twMerge(
+        "bg-white rounded-lg border px-6 py-4 shadow-sm relative",
+        step.flag === "orange" && "bg-orange-50 border-orange-200",
+        step.flag === "red" && "bg-red-50 border-red-200",
+        step.flag === "purple" && "bg-purple-50 border-purple-200",
+      )}
+    >
       <div className="absolute -top-8 left-2 w-12 h-12">
         <div className="relative w-full h-full">
           <Image
@@ -39,6 +47,27 @@ export const JourneyStep = ({ step }: Props) => {
             </span>
           ))}
         </div>
+      </div>
+      <div
+        className={twMerge(
+          "absolute top-1/2 -translate-y-1/2 h-0.5 border-t-2 border-dotted",
+          step.step % 2 === 1
+            ? "-right-[52px] w-[40px]"
+            : "-left-[52px] w-[40px]",
+          step.flag === "orange" && "border-orange-400",
+          step.flag === "red" && "border-red-400",
+          step.flag === "purple" && "border-purple-400",
+        )}
+      >
+        <div
+          className={twMerge(
+            "absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full",
+            step.step % 2 === 1 ? "right-0" : "left-0",
+            step.flag === "orange" && "bg-orange-400",
+            step.flag === "red" && "bg-red-400",
+            step.flag === "purple" && "bg-purple-400",
+          )}
+        />
       </div>
     </div>
   );
