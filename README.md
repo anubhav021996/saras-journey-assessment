@@ -30,7 +30,7 @@ Cards and connectors change color based on the flag property (red/orange/purple)
 
 ## Stack
 
-Next.js 16, TypeScript, Tailwind CSS
+Next.js 16, TypeScript, Tailwind CSS, tailwind-merge
 
 ## Deploy
 
